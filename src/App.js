@@ -58,7 +58,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="row">
-          <h1 className="title">Orders Ready</h1>
+          <h1 className="title">ORDERS READY</h1>
           <form
             className="order-form"
             noValidate
@@ -67,9 +67,9 @@ class App extends Component {
           >
             <div className="order-input">
               <TextField
-                id="test"
+                id="text-box"
                 name="addTextField"
-                label="Order ID"
+                label="Order Number"
                 error={this.state.errorAdd}
                 helperText={this.state.helperTextAdd}
                 value={this.state.inputAdd}

@@ -28,17 +28,6 @@ header {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -62,7 +51,7 @@ header {
   position: absolute !important;
   right: 5px;
   top: 5px;
-  background-color: white !important;
+  background-color: rgb(235, 235, 235) !important;
   box-shadow: none !important;
 }
 
@@ -76,13 +65,38 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-content: center;
-  margin: 0 auto 20px auto;
+  margin: auto;
   max-width: 600px;
 }
 
 .order-list {
   padding: 10px;
   height: 100%;
+}
+
+.order-input {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 1px solid rgba(235, 235, 235, 0.42) !important;
+}
+
+.MuiInput-underline:after {
+  border-bottom: 2px solid rgb(235, 235, 235) !important;
+}
+
+#text-box,
+#text-box-label {
+  color: rgb(235, 235, 235);
+}
+
+.title {
+  font-size: 60pt;
+  margin: 0px 0px 10px 0px;
+  color: rgb(235, 235, 235);
 }
 
 @keyframes App-logo-spin {
