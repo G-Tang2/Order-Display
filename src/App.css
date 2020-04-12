@@ -36,8 +36,15 @@ html {
   margin: 10px !important;
 }
 
+.close-icon {
+  position: absolute !important;
+  right: 5px;
+  top: 5px;
+}
+
 .order-container {
-  font-size: 4vw;
+  position: relative !important;
+  font-size: 6vw;
 }
 
 .order-form {
@@ -56,9 +63,6 @@ html {
   display: inline-block;
 }
 
-.list {
-  font-size: 4vw;
-}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
