@@ -32,6 +32,33 @@ html {
   color: #61dafb;
 }
 
+.btn {
+  margin: 10px !important;
+}
+
+.order-container {
+  font-size: 4vw;
+}
+
+.order-form {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  margin: auto;
+  max-width: 600px;
+}
+
+.order-list {
+  padding: 10px;
+}
+
+.order-input {
+  display: inline-block;
+}
+
+.list {
+  font-size: 4vw;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
