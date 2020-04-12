@@ -23,14 +23,15 @@ class App extends Component {
   }
 
   handleAddChange(e) {
-    this.setState({ inputAdd: e.target.value });
+    this.setState({
+      inputAdd: e.target.value,
+      errorAdd: false,
+      helperTextAdd: "",
+    });
   }
 
-  handleRemoveChange(e) {
-    this.setState({ inputRemove: e.target.value });
-  }
-
-  handleClickAdd() {
+  handleClickAdd(e) {
+    e.preventDefault();
     if (!this.state.currentOrders.includes(this.state.inputAdd)) {
       this.setState({
         currentOrders: this.state.currentOrders.concat(this.state.inputAdd),
@@ -45,78 +46,61 @@ class App extends Component {
     }
   }
 
-  handleClickRemove() {
-    let index = this.state.currentOrders.indexOf(this.state.inputRemove);
+  handleClickRemove(number) {
+    let index = this.state.currentOrders.indexOf(number);
     if (index > -1) {
       this.state.currentOrders.splice(index, 1);
-      this.setState({
-        inputRemove: "",
-        errorRemove: false,
-        helperTextRemove: "",
-      });
-    } else {
-      this.setState({
-        errorRemove: true,
-        helperTextRemove: "Order does not exist",
-      });
+      this.forceUpdate();
     }
-    this.forceUpdate();
   }
 
   render() {
     return (
       <div className="App">
-        <h1 className="title">Orders Ready</h1>
-        <form className="order-form" noValidate autoComplete="off">
-          <div className="order-input">
-            <TextField
-              id="test"
-              Name="addTextField"
-              label="Order ID"
-              error={this.state.errorAdd}
-              helperText={this.state.helperTextAdd}
-              value={this.state.inputAdd}
-              onChange={this.handleAddChange.bind(this)}
-            />
-            <Button
-              className="btn"
-              variant="contained"
-              onClick={this.handleClickAdd.bind(this)}
-            >
-              Add Order
-            </Button>
-          </div>
-          <div className="order-input">
-            <TextField
-              id="test"
-              label="Order ID"
-              error={this.state.errorRemove}
-              helperText={this.state.helperTextRemove}
-              value={this.state.inputRemove}
-              onChange={this.handleRemoveChange.bind(this)}
-            />
-            <Button
-              className="btn"
-              variant="contained"
-              onClick={this.handleClickRemove.bind(this)}
-            >
-              Remove Order
-            </Button>
-          </div>
-        </form>
+        <header className="row">
+          <h1 className="title">Orders Ready</h1>
+          <form
+            className="order-form"
+            noValidate
+            autoComplete="off"
+            onSubmit={this.handleClickAdd.bind(this)}
+          >
+            <div className="order-input">
+              <TextField
+                id="test"
+                name="addTextField"
+                label="Order ID"
+                error={this.state.errorAdd}
+                helperText={this.state.helperTextAdd}
+                value={this.state.inputAdd}
+                onChange={this.handleAddChange.bind(this)}
+              />
+              <Button type="submit" className="btn" variant="contained">
+                Add Order
+              </Button>
+            </div>
+          </form>
+        </header>
 
-        <Grid className="order-list" container spacing={3}>
-          {this.state.currentOrders.map((order) => (
-            <Grid item xs={3}>
-              <Paper className="order-container">
-                {order}
-                <Fab value={order} className="close-icon" size="small">
-                  <CloseIcon />
-                </Fab>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
+        <body className="row">
+          <Grid className="order-list" container spacing={3}>
+            {this.state.currentOrders.map((order) => (
+              <Grid key={order} item xs={3}>
+                <Paper className="order-container">
+                  {order}
+                  <Fab
+                    color="None"
+                    className="close-icon"
+                    size="small"
+                    onClick={() => this.handleClickRemove(order)}
+                  >
+                    <CloseIcon />
+                  </Fab>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </body>
       </div>
     );
   }
