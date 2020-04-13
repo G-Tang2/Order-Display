@@ -11,46 +11,42 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputAdd: "",
-      errorAdd: false,
-      helperTextAdd: "",
-      inputRemove: "",
-      errorRemove: false,
-      helpTextRemove: "",
+      input: "",
+      error: false,
+      helperText: "",
       currentOrders: [],
-      helperTextAdd: "",
     };
   }
 
-  handleAddChange(e) {
+  handleChange(e) {
     this.setState({
-      inputAdd: e.target.value,
-      errorAdd: false,
-      helperTextAdd: "",
+      input: e.target.value,
+      error: false,
+      helperText: "",
     });
   }
 
-  handleClickAdd(e) {
+  handleClick(e) {
     e.preventDefault();
     if (
-      this.state.inputAdd !== "" &&
-      !this.state.currentOrders.includes(this.state.inputAdd)
+      this.state.input !== "" &&
+      !this.state.currentOrders.includes(this.state.input)
     ) {
       this.setState({
-        currentOrders: this.state.currentOrders.concat(this.state.inputAdd),
+        currentOrders: this.state.currentOrders.concat(this.state.input),
       });
       this.setState({
-        inputAdd: "",
-        errorAdd: false,
-        helperTextAdd: "",
+        input: "",
+        error: false,
+        helperText: "",
       });
     } else {
-      if (this.state.inputAdd === "") {
-        this.setState({ errorAdd: true, helperTextAdd: "Enter a number" });
+      if (this.state.input === "") {
+        this.setState({ error: true, helperText: "Enter a number" });
       } else {
         this.setState({
-          errorAdd: true,
-          helperTextAdd: "Order already exists",
+          error: true,
+          helperText: "Order already exists",
         });
       }
     }
@@ -73,17 +69,17 @@ class App extends Component {
             className="order-form"
             noValidate
             autoComplete="off"
-            onSubmit={this.handleClickAdd.bind(this)}
+            onSubmit={this.handleClick.bind(this)}
           >
             <div className="order-input">
               <TextField
                 id="text-box"
-                name="addTextField"
+                name="TextField"
                 label="Order Number"
-                error={this.state.errorAdd}
-                helperText={this.state.helperTextAdd}
-                value={this.state.inputAdd}
-                onChange={this.handleAddChange.bind(this)}
+                error={this.state.error}
+                helperText={this.state.helperText}
+                value={this.state.input}
+                onChange={this.handleChange.bind(this)}
               />
               <Button type="submit" className="btn" variant="contained">
                 Add Order
