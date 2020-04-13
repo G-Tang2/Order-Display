@@ -7,18 +7,23 @@ body {
   overflow-x: hidden;
 }
 
-#root {
-  height: 100%;
-}
-
 body {
   flex: 1 1 auto;
-  background-color: antiquewhite;
+  background-color: #cadcfa;
 }
 
 header {
   flex: 0 1 auto;
-  background-color: rgb(63, 121, 238);
+  background-color: #2e61b3;
+}
+
+#root {
+  height: 100%;
+}
+
+#text-box,
+#text-box-label {
+  color: rgb(235, 235, 235);
 }
 
 .App {
@@ -26,21 +31,6 @@ header {
   flex-flow: column;
   height: 100%;
   text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 .btn {
@@ -51,8 +41,16 @@ header {
   position: absolute !important;
   right: 5px;
   top: 5px;
-  background-color: rgb(235, 235, 235) !important;
+  background-color: transparent !important;
   box-shadow: none !important;
+}
+
+.MuiInput-underline:after {
+  border-bottom: 2px solid rgb(235, 235, 235) !important;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 1px solid rgba(235, 235, 235, 0.42) !important;
 }
 
 .order-container {
@@ -80,30 +78,8 @@ header {
   top: 30px;
 }
 
-.MuiInput-underline:before {
-  border-bottom: 1px solid rgba(235, 235, 235, 0.42) !important;
-}
-
-.MuiInput-underline:after {
-  border-bottom: 2px solid rgb(235, 235, 235) !important;
-}
-
-#text-box,
-#text-box-label {
-  color: rgb(235, 235, 235);
-}
-
 .title {
   font-size: 60pt;
   margin: 0px 0px 10px 0px;
   color: rgb(235, 235, 235);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

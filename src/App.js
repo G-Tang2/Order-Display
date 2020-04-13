@@ -32,7 +32,10 @@ class App extends Component {
 
   handleClickAdd(e) {
     e.preventDefault();
-    if (!this.state.currentOrders.includes(this.state.inputAdd)) {
+    if (
+      this.state.inputAdd !== "" &&
+      !this.state.currentOrders.includes(this.state.inputAdd)
+    ) {
       this.setState({
         currentOrders: this.state.currentOrders.concat(this.state.inputAdd),
       });
@@ -42,7 +45,14 @@ class App extends Component {
         helperTextAdd: "",
       });
     } else {
-      this.setState({ errorAdd: true, helperTextAdd: "Order already exists" });
+      if (this.state.inputAdd === "") {
+        this.setState({ errorAdd: true, helperTextAdd: "Enter a number" });
+      } else {
+        this.setState({
+          errorAdd: true,
+          helperTextAdd: "Order already exists",
+        });
+      }
     }
   }
 
