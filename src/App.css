@@ -12,18 +12,14 @@ body {
   background-color: #cadcfa;
 }
 
-header {
-  flex: 0 1 auto;
-  background-color: #2e61b3;
-}
-
 #root {
   height: 100%;
 }
 
 #text-box,
 #text-box-label {
-  width: 13ch;
+  width: 8ch;
+  text-align: left;
   color: rgb(235, 235, 235);
 }
 
@@ -82,5 +78,7 @@ header {
 .title {
   font-size: 60pt;
   margin: 0px 0px 10px 0px;
+  flex: 0 1 auto;
+  background-color: #2e61b3;
   color: rgb(235, 235, 235);
 }

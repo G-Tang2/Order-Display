@@ -63,7 +63,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="row">
+        <div className="row">
           <h1 className="title">ORDERS READY</h1>
           <form
             className="order-form"
@@ -75,7 +75,7 @@ class App extends Component {
               <TextField
                 id="text-box"
                 name="TextField"
-                label="Order Number"
+                label="No."
                 error={this.state.error}
                 helperText={this.state.helperText}
                 value={this.state.input}
@@ -86,12 +86,12 @@ class App extends Component {
               </Button>
             </div>
           </form>
-        </header>
+        </div>
 
-        <body className="row">
+        <div className="row">
           <Grid className="order-list" container spacing={3}>
             {this.state.currentOrders.map((order) => (
-              <Grid key={order} item xs={3}>
+              <Grid key={order} item xs={4}>
                 <Paper className="order-container">
                   {order}
                   <Fab
@@ -106,7 +106,7 @@ class App extends Component {
               </Grid>
             ))}
           </Grid>
-        </body>
+        </div>
       </div>
     );
   }
