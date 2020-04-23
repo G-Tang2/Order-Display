@@ -23,6 +23,7 @@ header {
 
 #text-box,
 #text-box-label {
+  width: 13ch;
   color: rgb(235, 235, 235);
 }
 

@@ -82,7 +82,7 @@ class App extends Component {
                 onChange={this.handleChange.bind(this)}
               />
               <Button type="submit" className="btn" variant="contained">
-                Add Order
+                Add
               </Button>
             </div>
           </form>
