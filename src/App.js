@@ -88,7 +88,7 @@ class App extends Component {
           </form>
         </div>
 
-        <body className="row">
+        <div className="row">
           <Grid className="order-list" container spacing={3}>
             {this.state.currentOrders.map((order) => (
               <Grid key={order} item xs={4}>
@@ -106,7 +106,7 @@ class App extends Component {
               </Grid>
             ))}
           </Grid>
-        </body>
+        </div>
       </div>
     );
   }
