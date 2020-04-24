@@ -19,7 +19,7 @@ body {
 #text-box,
 #text-box-label {
   width: 8ch;
-  text-align: left;
+  text-align:left;
   color: rgb(235, 235, 235);
 }
 
@@ -75,9 +75,14 @@ body {
   top: 30px;
 }
 
+.num-container {
+  margin: 15px 0 !important;
+}
+
 .title {
   font-size: 60pt;
-  margin: 0px 0px 10px 0px;
+  margin: 0;
+  padding-bottom: 10px;
   flex: 0 1 auto;
   background-color: #2e61b3;
   color: rgb(235, 235, 235);
