@@ -94,6 +94,7 @@ class App extends Component {
           >
             <div className="order-input">
               <TextField
+                inputProps={{maxLength:4}}
                 id="text-box"
                 name="TextField"
                 label="No."
