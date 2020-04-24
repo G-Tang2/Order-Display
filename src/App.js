@@ -94,7 +94,7 @@ class App extends Component {
           >
             <div className="order-input">
               <TextField
-                inputProps={{maxLength:4}}
+                inputProps={{ maxLength: 15 }}
                 id="text-box"
                 name="TextField"
                 label="No."
@@ -113,7 +113,7 @@ class App extends Component {
         <div className="row">
           <Grid className="order-list" container spacing={3}>
             {this.state.currentOrders.map((order) => (
-              <Grid className="num-container" key={order} item xs={4}>
+              <Grid className="num-container" key={order}>
                 <Paper className="order-container">
                   {order}
                   <Fab

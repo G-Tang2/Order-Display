@@ -36,8 +36,8 @@ body {
 
 .close-icon {
   position: absolute !important;
-  right: 5px;
-  top: 5px;
+  right: 0px;
+  top: 0px;
   background-color: transparent !important;
   box-shadow: none !important;
 }
@@ -54,6 +54,7 @@ body {
   position: relative !important;
   font-size: 10vw;
   margin: 10px 40px;
+  padding: 0px 25px 10px 25px;
 }
 
 .order-form {
