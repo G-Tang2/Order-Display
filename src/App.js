@@ -15,6 +15,9 @@ class App extends Component {
       error: false,
       helperText: "",
       currentOrders: [],
+      mouseTimer: null,
+      cursorStyle: "default",
+      cursorVisible: true,
     };
   }
 
@@ -28,27 +31,21 @@ class App extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    if (
-      this.state.input !== "" &&
-      !this.state.currentOrders.includes(this.state.input)
-    ) {
+    // check if input is empty
+    if (this.state.input === "") {
+      this.setState({ error: true, helperText: "Enter a number" });
+    } else if (!this.state.currentOrders.includes(this.state.input)) {
       this.setState({
         currentOrders: this.state.currentOrders.concat(this.state.input),
-      });
-      this.setState({
-        input: "",
-        error: false,
-        helperText: "",
+        input: "", // clear textbox input
+        error: false, // reset error
+        helperText: "", // reset error message
       });
     } else {
-      if (this.state.input === "") {
-        this.setState({ error: true, helperText: "Enter a number" });
-      } else {
-        this.setState({
-          error: true,
-          helperText: "Order already exists",
-        });
-      }
+      this.setState({
+        error: true,
+        helperText: "Duplicate order",
+      });
     }
   }
 
@@ -60,9 +57,33 @@ class App extends Component {
     }
   }
 
+  handleMouseMove() {
+    if (this.state.mouseTimer) {
+      clearTimeout(this.state.mouseTimer);
+    }
+    if (!this.state.cursorVisible) {
+      this.setState({ cursorStyle: "default", cursorVisible: true });
+    }
+    this.setState({
+      mouseTimer: setTimeout(this.disappearCursor.bind(this), 3000),
+    });
+  }
+
+  disappearCursor() {
+    this.setState({
+      mouseTimer: null,
+      cursorStyle: "none",
+      cursorVisible: false,
+    });
+  }
+
   render() {
     return (
-      <div className="App">
+      <div
+        className="App"
+        onMouseMove={this.handleMouseMove.bind(this)}
+        style={{ cursor: this.state.cursorStyle }}
+      >
         <div className="row">
           <h1 className="title">ORDERS READY</h1>
           <form
