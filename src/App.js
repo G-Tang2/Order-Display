@@ -31,12 +31,13 @@ class App extends Component {
 
   handleClick(e) {
     e.preventDefault();
+    // TODO: set variable to this.state.input.trim()
     // check if input is empty
-    if (this.state.input === "") {
+    if (this.state.input.trim() === "") {
       this.setState({ error: true, helperText: "Enter a number" });
-    } else if (!this.state.currentOrders.includes(this.state.input)) {
+    } else if (!this.state.currentOrders.includes(this.state.input.trim())) {
       this.setState({
-        currentOrders: this.state.currentOrders.concat(this.state.input),
+        currentOrders: this.state.currentOrders.concat(this.state.input.trim()),
         input: "", // clear textbox input
         error: false, // reset error
         helperText: "", // reset error message
@@ -94,7 +95,7 @@ class App extends Component {
           >
             <div className="order-input">
               <TextField
-                inputProps={{maxLength:4}}
+                inputProps={{ maxLength: 4 }}
                 id="text-box"
                 name="TextField"
                 label="No."
